@@ -1,0 +1,53 @@
+import random
+
+# Predefined words
+words = ["python", "computer", "apple", "gaming", "internship"]
+
+# Select random word
+word = random.choice(words)
+
+guessed_letters = []
+wrong_attempts = 0
+max_attempts = 6
+
+print("===== HANGMAN GAME =====")
+
+while wrong_attempts < max_attempts:
+
+    display_word = ""
+
+    for letter in word:
+        if letter in guessed_letters:
+            display_word += letter + " "
+        else:
+            display_word += "_ "
+
+    print("\nWord:", display_word)
+
+    # Win condition
+    if "_" not in display_word:
+        print("🎉 Congratulations! You guessed the word.")
+        break
+
+    guess = input("Enter one letter: ").lower()
+
+    # Validation
+    if len(guess) != 1:
+        print("Enter only one letter.")
+        continue
+
+    if guess in guessed_letters:
+        print("Already guessed.")
+        continue
+
+    guessed_letters.append(guess)
+
+    if guess not in word:
+        wrong_attempts += 1
+        print("Wrong Guess")
+        print("Remaining Attempts:", max_attempts - wrong_attempts)
+
+# Lose condition
+if wrong_attempts == max_attempts:
+    print("\nGame Over")
+    print("Correct Word:", word)

@@ -1,0 +1,32 @@
+def chatbot():
+
+    print("===== SMART CHATBOT =====")
+    print("Type 'bye' to exit")
+
+    while True:
+
+        msg = input("You: ").lower()
+
+        if msg == "hello":
+            print("Bot: Hello! Nice to meet you.")
+
+        elif msg == "how are you":
+            print("Bot: I am working perfectly.")
+
+        elif msg == "your name":
+            print("Bot: I am CodeAlpha Chatbot.")
+
+        elif msg == "time":
+            print("Bot: I cannot check live time right now.")
+
+        elif msg == "help":
+            print("Bot: Ask hello, how are you, your name")
+
+        elif msg == "bye":
+            print("Bot: Goodbye!")
+            break
+
+        else:
+            print("Bot: Try another question.")
+
+chatbot()
